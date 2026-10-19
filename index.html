@@ -6,7 +6,7 @@
     <title>Premium Vacation Packages & Tours | Travel Agency</title>
     <meta name="description" content="Explore affordable international tour packages, custom holiday itineraries, and premium travel arrangements with our dedicated travel agency.">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; color: #333; background-color: green; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; color: #333; background-color: white; }
         header { background-color: #0288d1; color: white; padding: 30px; text-align: center; border-radius: 8px; margin-bottom: 30px; }
         header h1 { margin: 0; font-size: 2.5em; }
         header p { margin: 10px 0 0 0; font-size: 1.2em; opacity: 0.9; }
@@ -86,7 +86,7 @@
         }
 
         // Initialize fetching when the page loads
-        if (SCRIPT_URL !== "https://script.google.com/macros/s/AKfycbytEtGBmxTUr3d0MFTeSP6eKbiBWfCajUF8OwF3AvMb_iyfc9p_JGdBg8ncEAAW9QR1/exec") {
+        if (SCRIPT_URL !== "") {
             loadTravelData();
         } else {
             loading.innerText = "Configuration required: Please paste your script URL inside the HTML code settings.";
