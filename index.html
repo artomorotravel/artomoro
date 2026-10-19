@@ -122,66 +122,79 @@
 
     <script>
         // PASTE YOUR LIVE GOOGLE APPS SCRIPT WEB APP URL BETWEEN THE QUOTES BELOW
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbytEtGBmxTUr3d0MFTeSP6eKbiBWfCajUF8OwF3AvMb_iyfc9p_JGdBg8ncEAAW9QR1/exec";
+        var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbytEtGBmxTUr3d0MFTeSP6eKbiBWfCajUF8OwF3AvMb_iyfc9p_JGdBg8ncEAAW9QR1/exec";
 
-        async function loadTravelData() {
-            const container = document.getElementById('tour-container');
-            const loading = document.getElementById('loading');
-            const errorMsg = document.getElementById('error-msg');
+        function loadTravelData() {
+            var container = document.getElementById('tour-container');
+            var loading = document.getElementById('loading');
+            var errorMsg = document.getElementById('error-msg');
 
-            try {
-                const response = await fetch(SCRIPT_URL);
-                if (!response.ok) throw new Error('Network response failure');
-                
-                const packages = await response.json();
-                loading.style.display = 'none';
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', SCRIPT_URL + '?cb=' + new Date().getTime(), true);
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var packages = JSON.parse(xhr.responseText);
+                        loading.style.display = 'none';
 
-                if(packages.length === 0) {
-                    loading.innerText = "No travel packages are currently listed. Check back soon!";
-                    loading.style.display = 'block';
-                    return;
-                }
+                        if (packages.length === 0) {
+                            loading.innerText = "No travel packages are currently listed. Check back soon!";
+                            loading.style.display = 'block';
+                            return;
+                        }
 
-                packages.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'tour-card';
-                    
-                    // Main feature photo fallbacks
-                    const mainImage = item.pict || 'https://unsplash.com';
-                    
-                    // Portfolio grid item insertion element if it exists in Column F
-                    let portfolioHtml = '';
-                    if (item.portfolio) {
-                        portfolioHtml = `<img src="${item.portfolio}" alt="Tour Portfolio" class="tour-image-sub">`;
+                        for (var i = 0; i < packages.length; i++) {
+                            var item = packages[i];
+                            var card = document.createElement('div');
+                            card.className = 'tour-card';
+                            
+                            var mainImage = item.pict || 'https://unsplash.com';
+                            
+                            // Reconstructed Documentation Section: Image + Text Description Below It
+                            var portfolioHtml = '';
+                            if (item.portfolio) {
+                                var textCaption = item.documentation || 'Tour completion documentation.';
+                                portfolioHtml = '<div style="margin-top: 15px; border-top: 1px dashed #e0e0e0; padding-top: 15px;">' +
+                                                '<span style="font-size: 0.85em; font-weight: bold; color: #0288d1; text-transform: uppercase; display: block; margin-bottom: 5px;">📸 Finished Tour Documentation:</span>' +
+                                                '<a href="' + item.portfolio + '" target="_blank" title="Click to view full size documentation">' +
+                                                '<img src="' + item.portfolio + '" alt="Tour Portfolio" class="tour-image-sub">' +
+                                                '</a>' +
+                                                '<p style="font-size: 0.9em; color: #555; font-style: italic; margin: 8px 0 0 0; line-height: 1.4;">' + textCaption + '</p>' +
+                                                '</div>';
+                            }
+
+                            card.innerHTML = 
+                                '<div class="image-gallery">' +
+                                    '<a href="' + mainImage + '" target="_blank" title="Click to view full size">' +
+                                        '<img src="' + mainImage + '" alt="' + (item.destination || 'Tour Image') + '" class="tour-image-main">' +
+                                    '</a>' +
+                                '</div>' +
+                                '<div class="tour-content">' +
+                                    '<h2>' + (item.destination || 'Special Offer') + '</h2>' +
+                                    '<div class="tour-info"><strong>Itinerary:</strong> ' + (item.package || 'Custom Tour') + '</div>' +
+                                    '<div class="tour-info"><strong>Duration:</strong> ' + (item.duration || 'Flexible') + '</div>' +
+                                    '<div class="price-tag">' + (item.price || 'Contact Us') + '</div>' +
+                                    portfolioHtml + 
+                                '</div>';
+                                
+                            container.appendChild(card);
+                        }
+                    } else {
+                        loading.style.display = 'none';
+                        errorMsg.style.display = 'block';
                     }
-
-                    card.innerHTML = `
-                        <div class="image-gallery">
-                            <img src="${mainImage}" alt="${item.destination || 'Tour Image'}" class="tour-image-main">
-                            ${portfolioHtml}
-                        </div>
-                        <div class="tour-content">
-                            <h2>${item.destination || 'Special Offer'}</h2>
-                            <div class="tour-info"><strong>Itinerary:</strong> ${item.package || 'Custom Tour'}</div>
-                            <div class="tour-info"><strong>Duration:</strong> ${item.duration || 'Flexible'}</div>
-                            <div class="price-tag">${item.price || 'Contact Us'}</div>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error('Error fetching travel data:', error);
-                loading.style.display = 'none';
-                errorMsg.style.display = 'block';
-            }
+                }
+            };
+            xhr.send();
         }
 
         if (SCRIPT_URL !== "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
             loadTravelData();
         } else {
-            loading.innerText = "Configuration required: Please paste your script URL inside the HTML code settings.";
+            document.getElementById('loading').innerText = "Configuration required: Please paste your script URL inside the HTML code settings.";
         }
     </script>
+
 </body>
 </html>
