@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wanderlust Travels - Gallery</title>
     <style>
+        .sticky-top-block { position: sticky; top: 0; z-index: 2000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
         header { background-color: #006699; color: white; text-align: center; padding: 2.5rem 1rem;position: sticky;top: 0;z-index: 1000; }
         header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
@@ -24,17 +25,20 @@
     </style>
 </head>
 <body>
-
+<div class="sticky-top-block">
     <header>
         <h1>Artomoro Tour&Travels</h1>
         <p>"Your Travel Solution"</p>
-    </header>
+    
 
     <nav>
         <a href="index.html">About Us</a>
         <a href="index1.html">Travel Packages</a>
         <a href="index2.html" class="active">Gallery</a>
     </nav>
+   </header>
+</div> 
+
 
     <div class="main-content">
         <div class="gallery-grid" id="gallery-container">
