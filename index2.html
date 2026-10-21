@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Travels - Gallery</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #006699; color: white; text-align: center; padding: 2.5rem 1rem; }
+        header h1 { margin: 0; }
+        header p { margin: 0.5rem 0 0 0; font-style: italic; color: #e0f2fe; }
+        nav { background-color: #004d73; display: flex; justify-content: center; gap: 20px; padding: 10px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 8px 16px; border-radius: 4px; }
+        nav a:hover, nav a.active { background-color: #00334d; }
+        .main-content { flex: 1; }
+        .gallery-grid { max-width: 1200px; margin: 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
+        .gallery-item { background: white; padding: 10px; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; }
+        .gallery-item p { margin: 10px 0 5px 0; font-style: italic; color: #444; font-size: 0.95rem; text-align: center; }
+        footer { background-color: #1e293b; color: #f1f5f9; text-align: center; padding: 25px 15px; margin-top: 40px; font-size: 0.95rem; border-top: 4px solid #006699; }
+        footer p { margin: 6px 0; }
+        footer a { color: #38bdf8; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
 
+    <header>
+        <h1>Wanderlust Travels</h1>
+        <p>"Your Gateway to Unforgettable Journeys"</p>
+    </header>
+
+    <nav>
+        <a href="index.html">About Us</a>
+        <a href="index1.html">Travel Packages</a>
+        <a href="index2.html" class="active">Gallery</a>
+    </nav>
+
+    <div class="main-content">
+        <div class="gallery-grid" id="gallery-container">
+            <!-- Live Google Sheet Data Inserts Here -->
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Wanderlust Travels Agency</strong></p>
+        <p>📍 Address: 123 Explorer Boulevard, Suite 400, Travel City, TC 56789</p>
+        <p>💬 Contact Us via WhatsApp: <a href="https://wa.me" target="_blank">+1 (234) 567-890</a></p>
+        <p style="margin-top: 15px; font-size: 0.85rem; color: #94a3b8;">&copy; 2026 Wanderlust Travels. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const SCRIPT_URL = "YOUR_WEB_APP_URL_HERE";
+
+        async function fetchGallery() {
+            try {
+                const response = await fetch(`${SCRIPT_URL}?type=gallery`);
+                const items = await response.json();
+                const container = document.getElementById('gallery-container');
+
+                if(items.length === 0) {
+                    container.innerHTML = "<p>No photos available yet.</p>";
+                    return;
+                }
+
+                container.innerHTML = items.map(item => `
+                    <div class="gallery-item">
+                        <img src="${item.image}" alt="Travel Photo">
+                        <p>${item.description}</p>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error("Error loading gallery:", error);
+                document.getElementById('gallery-container').innerHTML = "<p>Failed to load gallery images.</p>";
+            }
+        }
+        fetchGallery();
+    </script>
+</body>
+</html>
