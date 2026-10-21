@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wanderlust Travels - About Us</title>
     <style>
+        .sticky-top-block { position: sticky; top: 0; z-index: 2000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: #006699; color: white; text-align: center; padding: 2.5rem 1rem;position: sticky;top: 0;z-index: 1000;}
+        header { background-color: #006699; color: white; text-align: center; padding: 2.5rem 1rem;}
         header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
         header p { margin: 0.5rem 0 0 0; font-style: italic; font-size: 1.2rem; color: #e0f2fe; }
-        nav { background-color: #004d73; display: flex; justify-content: center; gap: 20px; padding: 10px;position: sticky;top: 0;z-index: 1000; }
+        nav { background-color: #004d73; display: flex; justify-content: center; gap: 20px; padding: 10px; }
         nav a { color: white; text-decoration: none; font-weight: bold; padding: 8px 16px; border-radius: 4px; transition: background 0.3s; }
         nav a:hover, nav a.active { background-color: #00334d; }
         .main-content { flex: 1; }
@@ -23,18 +24,19 @@
     </style>
 </head>
 <body>
-
+<div class="sticky-top-block">
     <header>
         <h1>Artomoro Tour&Travels</h1>
         <p>"Your Travels Solution"</p>
-     
+    </header>
 
     <nav>
         <a href="index.html" class="active">About Us</a>
         <a href="index1.html">Travel Packages</a>
         <a href="index2.html">Gallery</a>
     </nav>
-    </header>
+</div>
+   
    
     <div class="main-content">
         <div class="container">
