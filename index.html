@@ -3,173 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Vacation Packages & Tours | Travel Agency</title>
-    <meta name="description" content="Explore affordable international tour packages, custom holiday itineraries, and premium travel arrangements with our dedicated travel agency.">
+    <title>Wanderlust Travels - About Us</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            padding: 20px 20px 120px 20px; 
-            color: #333; 
-            background: #a8fafc;
-        }
-        header { background-color: #0288d1; color: white; padding: 30px; text-align: center; border-radius: 8px; margin-bottom: 30px; }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { margin: 10px 0 0 0; font-size: 1.9em; opacity: 0.9; }
-        
-        .intro-text { font-size: 1.1em; margin-bottom: 30px; text-align: center; color: #555; }
-        .tour-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
-        @media (min-width: 768px) { .tour-grid { grid-template-columns: 1fr 1fr; } }
-        
-        .tour-card { 
-            background: white; 
-            border: 1px solid #e2e8f0; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02); 
-            transition: transform 0.2s, box-shadow 0.2s; 
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-        }
-        .tour-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
-        
-        .tour-image-main { width: 100%; height: 220px; object-fit: cover; display: block; }
-        .tour-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .tour-card h2 { margin-top: 0; color: #0288d1; font-size: 1.5em; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
-        .tour-info { margin: 8px 0; font-size: 0.95em; color: #475569; }
-        .tour-info strong { color: #1e293b; }
-        
-        /* Flex box configuration for price elements */
-        .price-row { margin-top: auto; padding-top: 15px; }
-        .price-tag { display: inline-block; background-color: #e8f5e9; color: #2e7d32; font-weight: bold; font-size: 1.25em; padding: 6px 16px; border-radius: 6px; }
-        
-        /* Inline Gallery Layout Engine */
-        .tour-gallery-wrapper { padding: 0 20px 20px 20px; border-top: 1px dashed #e2e8f0; background: #fafafa; }
-        .gallery-title { font-size: 0.85em; font-weight: bold; color: #94a3b8; text-transform: uppercase; margin: 12px 0 8px 0; letter-spacing: 0.5px; }
-        .tour-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-        .gallery-img { width: 100%; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer; transition: opacity 0.2s; border: 1px solid #e2e8f0; }
-        .gallery-img:hover { opacity: 0.8; }
-
-        /* Sticky Contact Footbar */
-        .contact-bar { 
-            position: fixed; bottom: 0; left: 0; width: 100%; background-color: #ffffff; 
-            border-top: 3px solid #0288d1; padding: 15px 20px; box-shadow: 0 -4px 10px rgba(0,0,0,0.05); 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
-            box-sizing: border-box; z-index: 1000;
-        }
-        @media (min-width: 600px) { .contact-bar { flex-direction: row; justify-content: space-around; padding: 15px 50px; } }
-        .address-box { font-size: 0.95em; color: #444; text-align: center; }
-        @media (min-width: 600px) { .address-box { text-align: left; } }
-        
-        .wa-btn { 
-            background-color: #25d366; color: white; text-decoration: none; font-weight: bold; 
-            padding: 10px 10px; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-            transition: background-color 0.2s; display: inline-flex; align-items: center;
-        }
-        .wa-btn:hover { background-color: #128c7e; }
-        
-        #loading { text-align: center; font-size: 1em; padding: 20px; color: #666; font-style: italic; }
-        #error-msg { text-align: center; color: #d32f2f; font-weight: bold; padding: 20px; display: none; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #006699; color: white; text-align: center; padding: 2.5rem 1rem; }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        header p { margin: 0.5rem 0 0 0; font-style: italic; font-size: 1.2rem; color: #e0f2fe; }
+        nav { background-color: #004d73; display: flex; justify-content: center; gap: 20px; padding: 10px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 8px 16px; border-radius: 4px; transition: background 0.3s; }
+        nav a:hover, nav a.active { background-color: #00334d; }
+        .main-content { flex: 1; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 25px; }
+        .service-card { background: #f9fbfd; padding: 20px; border-left: 4px solid #006699; border-radius: 4px; }
+        footer { background-color: #1e293b; color: #f1f5f9; text-align: center; padding: 25px 15px; margin-top: 40px; font-size: 0.95rem; border-top: 4px solid #006699; }
+        footer p { margin: 6px 0; }
+        footer a { color: #38bdf8; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>ARTOMORO Tour & Travel</h1>
-        <p>Your Travel Solution</p>
+        <h1>Wanderlust Travels</h1>
+        <p>"Your Gateway to Unforgettable Journeys"</p>
     </header>
 
-    <main>
-        <p class="intro-text">Browse our real-time availability of highly curated tour itineraries and destination packages managed directly by our travel experts.</p>
-        
-        <div id="loading">Searching our database for live tour packages...</div>
-        <div id="error-msg">Unable to load current tour packages. Please try again shortly.</div>
-        
-        <div id="tour-container" class="tour-grid"></div>
-    </main>
+    <nav>
+        <a href="index.html" class="active">About Us</a>
+        <a href="index1.html">Travel Packages</a>
+        <a href="index2.html">Gallery</a>
+    </nav>
 
-    <div class="contact-bar">
-        <div class="address-box">
-            <strong>📍 Head Office:</strong> 123 Travel Agency Street, Suite 400, Business District
+    <div class="main-content">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>Welcome to <strong>Wanderlust Travels</strong>! We are a premier, full-service travel agency dedicated to crafting personalized and transformative travel experiences. Whether you are looking for a serene beach escape, a thrilling mountain trek, or a deep cultural dive, our seasoned experts design seamless itineraries structured entirely around your dreams.</p>
+            
+            <h2>Our Core Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>Customized Tour Packages</h3>
+                    <p>Tailor-made itineraries built precisely to match your schedule, budget, and personal interests.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Hassle-Free Bookings</h3>
+                    <p>From top-rated flight connections to handpicked accommodations, we handle every single detail.</p>
+                </div>
+                <div class="service-card">
+                    <h3>24/7 Travel Support</h3>
+                    <p>Travel with complete peace of mind knowing our dedicated support desk is available around the clock.</p>
+                </div>
+            </div>
         </div>
-        <a href="whatsapp://send?phone=6282257189040&text=Hello%20Travel%20Agent,%20I%20am%20interested%20in%20your%20packages!" class="wa-btn">
-            💬 Chat via WhatsApp
-        </a>
     </div>
 
-    <script>
-        // PASTE YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL BELOW
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbytEtGBmxTUr3d0MFTeSP6eKbiBWfCajUF8OwF3AvMb_iyfc9p_JGdBg8ncEAAW9QR1/exec";
+    <footer>
+        <p><strong>Wanderlust Travels Agency</strong></p>
+        <p>📍 Address: 123 Explorer Boulevard, Suite 400, Travel City, TC 56789</p>
+        <p>💬 Contact Us via WhatsApp: <a href="https://wa.me" target="_blank">+1 (234) 567-890</a></p>
+        <p style="margin-top: 15px; font-size: 0.85rem; color: #94a3b8;">&copy; 2026 Wanderlust Travels. All rights reserved.</p>
+    </footer>
 
-        async function loadTravelData() {
-            const container = document.getElementById('tour-container');
-            const loading = document.getElementById('loading');
-            const errorMsg = document.getElementById('error-msg');
-
-            try {
-                const response = await fetch(SCRIPT_URL);
-                if (!response.ok) throw new Error('Network response failure');
-                
-                const packages = await response.json();
-                loading.style.display = 'none';
-
-                if(packages.length === 0) {
-                    loading.innerText = "No travel packages are currently listed. Check back soon!";
-                    loading.style.display = 'block';
-                    return;
-                }
-
-                packages.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'tour-card';
-                    
-                    // Assign explicit package photo or standard fallback placeholder
-                    const mainImage = item.pict || 'https://unsplash.com';
-                    
-                    // Render sub-gallery element if valid images are extracted from the spreadsheet
-                    let galleryHtml = '';
-                    if (item.gallery && Array.isArray(item.gallery) && item.gallery.length > 0 && item.gallery[0] !== "") {
-                        galleryHtml = `
-                            <div class="tour-gallery-wrapper">
-                                <div class="gallery-title">Package Gallery</div>
-                                <div class="tour-gallery">
-                                    ${item.gallery.map(imgUrl => `
-                                        <img src="\${imgUrl}" alt="Gallery item" class="gallery-img" onclick="this.closest('.tour-card').querySelector('.tour-image-main').src='\${imgUrl}'">
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `;
-                    }
-
-                    card.innerHTML = `
-                        <img src="${mainImage}" alt="${item.destination || 'Tour Image'}" class="tour-image-main">
-                        <div class="tour-content">
-                            <h2>${item.destination || 'Special Offer'}</h2>
-                            <div class="tour-info"><strong>Itinerary:</strong> ${item.package || 'Custom Tour'}</div>
-                            <div class="tour-info"><strong>Duration:</strong> ${item.duration || 'Flexible'}</div>
-                            <div class="price-row">
-                                <div class="price-tag">${item.price || 'Contact Us'}</div>
-                            </div>
-                        </div>
-                        ${galleryHtml}
-                    `;
-                    container.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error('Error fetching travel data:', error);
-                loading.style.display = 'none';
-                errorMsg.style.display = 'block';
-            }
-        }
-
-        if (SCRIPT_URL !== "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
-            loadTravelData();
-        } else {
-            loading.innerText = "Configuration required: Please paste your deployed Web App URL inside the HTML code settings.";
-        }
-    </script>
 </body>
 </html>
